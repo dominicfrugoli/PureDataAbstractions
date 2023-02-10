@@ -1,0 +1,28 @@
+#N canvas 295 223 719 200 12;
+#X obj 20 95 tgl 15 0 empty \$0-done playback 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 192 95 bng 15 250 50 0 empty empty select\\\ file 17 7 0 10
+#fcfcfc #000000 #000000;
+#X obj 20 150 dac~;
+#X msg 172 66 /usr/share/sounds/alsa/Front_Center.wav;
+#X obj 20 25 tgl 15 0 empty empty DSP 17 7 0 10 #fcfcfc #000000 #000000
+0 1;
+#X msg 20 50 \; pd dsp 1;
+#X obj 192 150 s \$0-done;
+#X obj 106 95 tgl 15 0 empty empty loop 17 7 0 10 #fcfcfc #000000 #000000
+0 1;
+#X text 290 136 NOTE: Supports mono or stereo (but no multichannel)
+files. For mono files \, the second outlet~ will be silent.;
+#X text 187 24 TODO: Selecting a new audio file during looped playback
+will switch to it at next loop iteration - is this what we want?;
+#X obj 20 120 fileplay~ gtr-jazz.wav;
+#X msg 132 36 my.wav;
+#X connect 0 0 10 0;
+#X connect 1 0 10 2;
+#X connect 3 0 10 2;
+#X connect 4 0 5 0;
+#X connect 7 0 10 1;
+#X connect 10 0 2 0;
+#X connect 10 1 2 1;
+#X connect 10 2 6 0;
+#X connect 11 0 10 2;

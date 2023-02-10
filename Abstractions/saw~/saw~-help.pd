@@ -1,0 +1,68 @@
+#N canvas 281 151 620 575 12;
+#X msg 316 370 0;
+#X msg 352 370 1;
+#X obj 263 517 dac~;
+#X obj 263 466 *~;
+#X obj 284 446 hsl 128 15 0 1 0 0 empty empty Output_Volume -2 -8 0
+10 -262144 -1 -1 0 1;
+#X floatatom 263 370 5 0 0 0 - - -;
+#X obj 448 485 tabwrite~ saw~help;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array saw~help 500 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 500 -1 200 140 1;
+#X restore 32 400 graph;
+#X obj 448 439 loadbang;
+#X obj 448 461 metro 100;
+#X obj 263 404 saw~ 330;
+#X text 25 11 saw~ - A sawtooth oscillator based on the [phasor~] object
+\, but converts the wave to full scale (-1 to 1) and allows you to
+easily convert to inverse saw waves, f 79;
+#X text 25 57 ------------------------------------------------------------------------------
+, f 79;
+#X text 25 199 ------------------------------------------------------------------------------
+, f 79;
+#X text 25 136 2nd inlet - Ramp direction. This inlet decides whether
+the oscillator is in normal saw mode (ramping up) or inverse saw mode
+(ramping down). The inlet takes either a 0 or a 1 (0 for normal saw
+and 1 for inverse saw). The object will initialize at normal saw and
+this inlet will override that., f 79;
+#X text 25 218 1st outlet ~ Audio out. This is the audio outlet for
+the saw oscillator. It will output a sawtooth wave from -1 to 1, f
+79;
+#X text 25 254 ------------------------------------------------------------------------------
+, f 79;
+#X text 25 81 1st inlet - Frequency in. Takes a message and sets the
+frequency of the oscillator. The frequency can also be set by creation
+argument \, but will be overridden by this inlet., f 79;
+#X text 25 273 1st creation argument - Initial frequency. This object
+takes one creation argument and it sets the initial frequency of the
+oscillator. This frequency will be overridden by the 1st inlet., f
+79;
+#X text 187 368 Frequency;
+#X text 305 339 Normal Saw, f 6;
+#X text 356 338 Inverse Saw, f 7;
+#X connect 0 0 10 1;
+#X connect 1 0 10 1;
+#X connect 3 0 2 0;
+#X connect 3 0 2 1;
+#X connect 3 0 6 0;
+#X connect 4 0 3 1;
+#X connect 5 0 10 0;
+#X connect 8 0 9 0;
+#X connect 9 0 6 0;
+#X connect 10 0 3 0;

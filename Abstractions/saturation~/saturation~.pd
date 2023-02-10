@@ -1,0 +1,43 @@
+#N canvas 848 166 851 558 12;
+#X obj 84 259 inlet~;
+#X obj 258 388 -~;
+#X obj 258 450 /~;
+#X obj 276 314 *~ -1;
+#X obj 70 314 expr~ exp($v1*2.718);
+#X obj 276 278 *~;
+#X obj 70 388 expr~ (1/$v1)+$v1;
+#X obj 276 350 expr~ exp($v1*2.718);
+#X obj 258 489 outlet~;
+#X obj 128 83 cnv 15 255 105 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X obj 163 132 hsl 175 25 1 10 0 0 empty empty Saturation 110 -10 1
+15 -191407 -258113 -258113 0 1;
+#X obj 389 178 inlet;
+#X obj 294 230 pack f 30;
+#X obj 294 254 line~;
+#X text 461 287 https://forum.pdpatchrepo.info/topic/2722/saturation
+;
+#X text 461 271 Original code by Toxonic - 2008;
+#X text 460 233 Created by Dominic Frugoli - January 2023;
+#X obj 430 45 loadbang;
+#X msg 430 64 \; satdef 1 \;;
+#X obj 47 113 r satdef;
+#X text 517 64 Sets default values for the saturation on load, f 23
+;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 8 0;
+#X connect 3 0 7 0;
+#X connect 4 0 1 0;
+#X connect 4 0 6 0;
+#X connect 5 0 4 0;
+#X connect 5 0 3 0;
+#X connect 6 0 2 1;
+#X connect 7 0 1 1;
+#X connect 10 0 12 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 5 1;
+#X connect 17 0 18 0;
+#X connect 19 0 10 0;
+#X coords 0 -1 1 1 200 65 1 150 100;

@@ -1,0 +1,285 @@
+#N canvas 158 25 1519 948 12;
+#X obj 218 75 clip~ -1 1;
+#X obj 1180 27 bng 50 250 50 0 empty empty empty 17 7 0 10 -4032 -203904
+-1;
+#X obj 1262 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682
+-203904 -1;
+#X obj 1345 146 bng 15 250 50 0 empty empty empty 17 7 0 10 -261682
+-203904 -1;
+#X obj 1180 250 line~;
+#X obj 1180 195 bng 36 250 50 0 empty empty empty 17 7 0 10 -262130
+-204786 -1;
+#X obj 1345 195 bng 36 250 50 0 empty empty empty 17 7 0 10 -262130
+-203904 -1;
+#X obj 1262 195 bng 36 250 50 0 empty empty empty 17 7 0 10 -262130
+-204800 -1;
+#X msg 1345 231 0 100;
+#X obj 1096 269 *~;
+#X floatatom 1096 206 5 0 0 0 - - -;
+#X floatatom 219 307 5 0 0 0 - - -;
+#X obj 222 283 hsl 153 20 0 2000 0 0 empty empty Delay_Time -2 -10
+0 15 -228856 -258113 -1 1900 1;
+#X obj 294 94 s~ dry;
+#X obj 219 492 *~ \$1;
+#X floatatom 251 404 5 0 0 0 - - -;
+#X obj 254 377 hsl 153 20 0 1 0 0 empty empty Feedback_Level -2 -10
+0 15 -228856 -260097 -1 5320 1;
+#X obj 219 528 s~ wet;
+#X obj 291 511 s~ feedback;
+#X obj 109 193 r~ feedback;
+#X obj 311 686 +~;
+#X obj 263 667 *~;
+#X obj 356 667 *~;
+#X floatatom 217 612 5 0 0 0 - - -;
+#X obj 409 630 -;
+#X floatatom 409 649 5 0 0 0 - - -;
+#X obj 358 613 bng 17 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 220 593 hsl 153 20 0 2 0 0 empty empty Blend -2 -10 0 15 -228856
+-257985 -1 7600 1;
+#X floatatom 217 649 5 0 0 0 - - -;
+#X obj 311 777 clip~ -1 1;
+#X obj 311 796 dac~;
+#X obj 311 750 *~;
+#X obj 376 712 hsl 153 20 0 2 0 0 empty empty Master -2 -10 0 15 -228856
+-4034 -1 7600 1;
+#X floatatom 373 732 5 0 0 0 - - -;
+#X obj 218 50 r~ audioIn;
+#X obj 1035 540 s~ audioIn;
+#X obj 409 611 float 2;
+#X obj 367 105 int;
+#X obj 367 42 bng 43 250 50 0 empty empty ToggleOn -2 -7 0 10 -228856
+-4032 -1;
+#X obj 392 105 +;
+#X floatatom 367 127 3 0 0 0 - - -;
+#X msg 410 85 1, f 1;
+#X obj 367 148 % 2;
+#X floatatom 367 170 5 0 0 0 - - -;
+#X obj 218 188 *~;
+#X obj 429 85 tgl 50 0 empty empty empty 17 7 0 10 -228856 -4032 -1
+1 1;
+#X obj 356 636 r~ dry;
+#X obj 263 636 r~ wet;
+#X text 489 601 This is the blend control. It allows you to choose
+how much dry and wet signal you want. It is a teeter-totter slider
+so as one increases \, the other decreases. This is done with the [float]
+box and [-] box on the right. All left is completely dry \, all right
+is completely wet. After that \, it just goes to a basic master out.
+;
+#X text 1243 264 This is just an oscillator for testing.;
+#X obj 1035 369 adc~;
+#X obj 1035 433 *~;
+#X obj 1105 395 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 1102 415 5 0 0 0 - - -;
+#X obj 409 555 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1142 513 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 1141 471 - 100;
+#X obj 1141 452 env~;
+#X obj 449 796 env~;
+#X obj 449 815 - 100;
+#X obj 496 836 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X text 1154 415 This is an audio-in that can be used if using an interface.
+;
+#X obj 228 23 loadbang;
+#X obj 288 4 loadbang;
+#X obj 288 23 delay 1000;
+#X obj 32 245 loadbang;
+#X msg 32 264 250;
+#X obj 26 320 loadbang;
+#X msg 26 358 0.35;
+#X msg 30 574 1;
+#X obj 30 536 loadbang;
+#X obj 30 555 delay 1000;
+#X obj 33 674 loadbang;
+#X obj 1096 237 phasor~;
+#X msg 33 693 1;
+#X text 519 55 This is the audio input section. You have the receive
+audioIn box with a clip box for safety. This goes straight to the dry
+so there is always a dry signal going through. To the right is just
+a delay on/off toggle switch using an incremental counter. It then
+goes to the delay write box which send the signal to the delay (named
+mainLine here) with a max time of 2000 ms. There is also the feedback
+\, but we'll go over that in a bit.;
+#X obj 218 212 delwrite~ mainLine 2000;
+#X msg 1180 231 1 20;
+#X obj 1262 77 delay 20;
+#X msg 1262 231 0.5 50;
+#X obj 1345 118 delay 50;
+#X obj 219 329 delread~ mainLine 200;
+#X text 1620 1515 comment;
+#X obj 1620 1537;
+#X obj 713 846 cyclone/zl group 100;
+#X msg 713 728 devices;
+#X msg 845 728 close;
+#X obj 713 812 sel 13 10;
+#X obj 713 880 list tosymbol;
+#X obj 713 915 cyclone/fromsymbol;
+#X obj 713 952 unpack f f f;
+#X floatatom 703 976 5 0 0 0 - - -;
+#X floatatom 757 976 5 0 0 0 - - -;
+#X floatatom 811 976 5 0 0 0 - - -;
+#X obj 713 764 comport 0 9600;
+#X msg 782 728 open 2;
+#X obj 703 1006 s pot1;
+#X obj 757 1006 s pot2;
+#X obj 811 1006 s button1;
+#X obj 128 226 r pot1;
+#X obj 128 264 * 2;
+#X obj 128 245 clip 0 1000;
+#X obj 124 339 clip 0 1000;
+#X obj 124 320 r pot2;
+#X obj 124 358 / 1000;
+#X obj 251 449 spigot;
+#X obj 290 428 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 420 353 r button1;
+#X obj 420 390 sel 0;
+#X obj 468 390 sel 1;
+#X msg 384 409 1;
+#X msg 511 409 0;
+#X floatatom 420 372 5 0 0 0 - - -;
+#X floatatom 420 474 5 0 0 0 - - -;
+#X text 567 348 This is where the signal is processed through the delay.
+The delay read box gets the signal from the delay write box and delays
+it at whatever time you set using the slider (though it defaults to
+200ms). That then goes to the feedback section which determines how
+much quieter you want the delays to incrementally decrease \, based
+on the slider. That is then sent to the feedback send box which goes
+back to delay write to be delayed again. This goes on and on until
+the delay is no longer audible. The delay then goes to the send wet
+box which goes to the blend control and mixer. It also has controls
+using the arduino. The knobs control delay time and feedback. The button
+is an infinite delay pushbutton. When pressed \, it closes off the
+feedback level and puts it as 1 so it becomes infinite.;
+#X text 900 798 This is the area for processing the arduino. Most of
+it is kinda just boring serial communication stuff. This just needs
+to be opened if you want to use arduino control. When arduino is used
+though \, the delay gets really dirty. Pd doesn't like changing the
+delay times and arduino serial communication is very finicky so it
+oscillates slightly. This leads to a really dirty digital delay. Kinda
+cool but be warned., f 43;
+#X obj 290 404 loadbang;
+#X obj 26 339 delay 100;
+#X obj 1096 160 loadbang;
+#X msg 1096 183 220;
+#X connect 0 0 13 0;
+#X connect 0 0 44 0;
+#X connect 1 0 5 0;
+#X connect 1 0 78 0;
+#X connect 2 0 7 0;
+#X connect 2 0 80 0;
+#X connect 3 0 6 0;
+#X connect 4 0 9 1;
+#X connect 5 0 77 0;
+#X connect 6 0 8 0;
+#X connect 7 0 79 0;
+#X connect 8 0 4 0;
+#X connect 9 0 35 0;
+#X connect 10 0 73 0;
+#X connect 11 0 81 0;
+#X connect 12 0 11 0;
+#X connect 14 0 17 0;
+#X connect 14 0 18 0;
+#X connect 15 0 105 0;
+#X connect 16 0 15 0;
+#X connect 19 0 76 0;
+#X connect 20 0 31 0;
+#X connect 21 0 20 0;
+#X connect 22 0 20 1;
+#X connect 23 0 28 0;
+#X connect 23 0 24 1;
+#X connect 24 0 25 0;
+#X connect 25 0 22 1;
+#X connect 26 0 24 0;
+#X connect 27 0 23 0;
+#X connect 27 0 26 0;
+#X connect 28 0 21 1;
+#X connect 29 0 58 0;
+#X connect 29 0 30 1;
+#X connect 29 0 30 0;
+#X connect 31 0 29 0;
+#X connect 32 0 33 0;
+#X connect 33 0 31 1;
+#X connect 34 0 0 0;
+#X connect 36 0 24 0;
+#X connect 37 0 39 0;
+#X connect 37 0 40 0;
+#X connect 38 0 37 0;
+#X connect 38 0 41 0;
+#X connect 38 0 45 0;
+#X connect 39 0 37 1;
+#X connect 40 0 42 0;
+#X connect 41 0 39 1;
+#X connect 42 0 43 0;
+#X connect 43 0 44 1;
+#X connect 44 0 76 0;
+#X connect 46 0 22 0;
+#X connect 47 0 21 0;
+#X connect 50 0 51 0;
+#X connect 50 1 51 0;
+#X connect 51 0 35 0;
+#X connect 51 0 57 0;
+#X connect 52 0 53 0;
+#X connect 53 0 51 1;
+#X connect 54 0 36 0;
+#X connect 56 0 55 0;
+#X connect 57 0 56 0;
+#X connect 58 0 59 0;
+#X connect 59 0 60 0;
+#X connect 62 0 38 0;
+#X connect 63 0 64 0;
+#X connect 64 0 38 0;
+#X connect 65 0 66 0;
+#X connect 66 0 12 0;
+#X connect 67 0 117 0;
+#X connect 68 0 16 0;
+#X connect 69 0 27 0;
+#X connect 70 0 71 0;
+#X connect 70 0 54 0;
+#X connect 71 0 69 0;
+#X connect 72 0 74 0;
+#X connect 73 0 9 0;
+#X connect 74 0 32 0;
+#X connect 77 0 4 0;
+#X connect 78 0 2 0;
+#X connect 79 0 4 0;
+#X connect 80 0 3 0;
+#X connect 81 0 14 0;
+#X connect 84 0 88 0;
+#X connect 85 0 94 0;
+#X connect 86 0 94 0;
+#X connect 87 0 84 0;
+#X connect 87 2 84 0;
+#X connect 88 0 89 0;
+#X connect 89 0 90 0;
+#X connect 90 0 91 0;
+#X connect 90 1 92 0;
+#X connect 90 2 93 0;
+#X connect 91 0 96 0;
+#X connect 92 0 97 0;
+#X connect 93 0 98 0;
+#X connect 94 0 87 0;
+#X connect 95 0 94 0;
+#X connect 99 0 101 0;
+#X connect 100 0 12 0;
+#X connect 101 0 100 0;
+#X connect 102 0 104 0;
+#X connect 103 0 102 0;
+#X connect 104 0 16 0;
+#X connect 105 0 14 1;
+#X connect 106 0 105 1;
+#X connect 107 0 112 0;
+#X connect 108 0 110 0;
+#X connect 109 0 111 0;
+#X connect 110 0 106 0;
+#X connect 111 0 106 0;
+#X connect 112 0 108 0;
+#X connect 112 0 109 0;
+#X connect 112 0 113 0;
+#X connect 113 0 14 1;
+#X connect 116 0 106 0;
+#X connect 117 0 68 0;
+#X connect 118 0 119 0;
+#X connect 119 0 10 0;

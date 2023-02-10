@@ -1,0 +1,61 @@
+#N canvas 989 189 620 722 12;
+#X obj 58 462 saturation~;
+#X obj 160 388 bng 15 250 50 0 empty empty load 17 7 0 10 -262144 -1
+-1;
+#X obj 109 388 tgl 15 0 empty empty loop 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 58 388 tgl 15 0 empty empty play 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 485 464 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1
+0 1;
+#X msg 485 489 \; pd dsp \$1;
+#X obj 58 627 dac~;
+#X obj 58 598 *~;
+#X obj 79 568 hsl 128 15 0 1 0 0 empty empty Master_Volume -2 -8 0
+10 -262144 -1 -1 0 1;
+#X text 25 43 ------------------------------------------------------------------------------
+, f 79;
+#X text 25 150 ------------------------------------------------------------------------------
+, f 79;
+#X text 25 206 ------------------------------------------------------------------------------
+, f 79;
+#X text 25 22 saturation~ - A basic saturation drive that takes a signal
+and saturates it., f 79;
+#X text 25 87 2nd inlet - Saturation Level - Takes a number that sets
+the saturation level. 1 is unity gain \, anything above that adds saturation
+\, and anything below attenuates the signal. Negative numbers will
+flip the polarity of the signal as well., f 79;
+#X text 25 227 GUI - This abstraction has a graph on parent option
+that has a slider for the saturation level if that is preferred. The
+slider goes between 1 and 10 \, so attenutation and polarity flipping
+cannot be doen through the slider. The 2nd inlet will still be there
+though so other numbers outside the slider range can be fed through
+there., f 79;
+#X text 25 304 ------------------------------------------------------------------------------
+, f 79;
+#X floatatom 251 439 5 0 0 1 Saturation_Level - -;
+#X obj 58 413 fileplay~, f 15;
+#X text 206 380 2 - Load a file here to be played, f 17;
+#X text 26 339 4 - Click the play toggle to play the file, f 23;
+#X text 484 438 1 - Turn on dsp;
+#X text 266 485 5 - Turn up the saturation to hear the added harmonics
+, f 27;
+#X text 221 566 3 - Turn up the master volume slider to desired level
+, f 29;
+#X text 225 639 Created by Dominic Frugoli - January 2023;
+#X text 226 659 Original code by Toxonic - 2008;
+#X text 25 64 1st inlet~ - Audio In - Takes a mono signal input that
+wil be saturated., f 79;
+#X text 25 171 1st outlet ~ Audio Out - This is the audio output for
+the wet signal. It will output in mono., f 79;
+#X connect 0 0 7 0;
+#X connect 1 0 17 2;
+#X connect 2 0 17 1;
+#X connect 3 0 17 0;
+#X connect 4 0 5 0;
+#X connect 7 0 6 0;
+#X connect 7 0 6 1;
+#X connect 8 0 7 1;
+#X connect 16 0 0 1;
+#X connect 17 0 0 0;
+#X connect 17 1 0 0;

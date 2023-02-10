@@ -1,0 +1,145 @@
+#N canvas 151 170 842 571 10;
+#X obj 197 253 jVerb 0 0 0 0 0 0;
+#X text 312 247 nevermind the args. They are there to make the inlets/outlets
+distinguishable;
+#N canvas 0 50 450 300 sines 0;
+#X obj 355 122 + 50;
+#X obj 355 146 mtof;
+#X obj 355 168 osc~;
+#X obj 307 168 vline~;
+#X obj 333 199 *~;
+#X obj 335 230 outlet~;
+#X obj 103 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 355 97 random 36;
+#X msg 234 140 0.7 10 \, 0 150 20;
+#X obj 156 62 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 1;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 0 0;
+#X connect 8 0 3 0;
+#X connect 9 0 6 0;
+#X coords 0 -1 1 1 20 20 1 100 100;
+#X restore 173 190 pd sines;
+#X obj 211 280 dac~;
+#N canvas 0 50 671 300 noise 0;
+#X obj 502 130 mtof;
+#X obj 307 168 vline~;
+#X obj 333 199 *~;
+#X obj 335 230 outlet~;
+#X obj 103 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 502 81 random 36;
+#X obj 447 130 noise~;
+#X obj 502 106 + 70;
+#X obj 152 52 inlet;
+#X obj 448 180 vcf~ 1 10;
+#X msg 515 159 3;
+#X msg 234 141 1 1 \, 0 150 1;
+#X connect 0 0 9 1;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 4 0 11 0;
+#X connect 4 0 5 0;
+#X connect 4 0 10 0;
+#X connect 5 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 0 0;
+#X connect 8 0 4 0;
+#X connect 9 0 2 1;
+#X connect 10 0 9 2;
+#X connect 11 0 1 0;
+#X coords 0 -1 1 1 20 20 1 100 100;
+#X restore 233 190 pd noise;
+#N canvas 422 110 450 300 controls 0;
+#X floatatom 42 42 5 -100 100 2 G jg -, f 5;
+#X floatatom 6 42 5 -100 100 2 K jk -, f 5;
+#X obj 78 44 tgl 15 0 empty js S 0 -10 0 10 -262144 -1 -1 1 1;
+#X text 2 13 Junction vars;
+#X obj 6 76 / 100;
+#X obj 42 76 / 100;
+#X msg 6 99 junc k \$1;
+#X msg 42 121 junc g \$1;
+#X msg 78 76 junc s \$1;
+#X floatatom 162 42 5 -100 100 2 G2 ag2 -, f 5;
+#X floatatom 126 42 5 -100 100 2 G1 ag1 -, f 5;
+#X obj 17 214 outlet;
+#X obj 155 156 list;
+#X obj 163 120 t b f;
+#X obj 155 202 print;
+#X msg 155 179 apn g \$1 \$2;
+#X obj 162 76 / 100;
+#X obj 126 99 / 100;
+#X obj 282 22 loadbang;
+#X text 130 14 AP vars;
+#X msg 282 51 \; jk 60 \; jg 70 \; js 1 \; ag1 -80 \; ag2 50 \;;
+#X connect 0 0 5 0;
+#X connect 1 0 4 0;
+#X connect 2 0 8 0;
+#X connect 4 0 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 11 0;
+#X connect 7 0 11 0;
+#X connect 8 0 11 0;
+#X connect 9 0 16 0;
+#X connect 10 0 17 0;
+#X connect 12 0 15 0;
+#X connect 13 1 12 1;
+#X connect 15 0 14 0;
+#X connect 15 0 11 0;
+#X connect 16 0 13 0;
+#X connect 17 0 12 0;
+#X connect 18 0 20 0;
+#X coords 0 -1 1 1 200 60 1 0 0;
+#X restore 296 183 pd controls;
+#X obj 177 74 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 177 119 random 100;
+#X obj 183 141 moses 60;
+#X obj 183 164 moses 90;
+#X obj 177 96 metro 300;
+#X text 293 48 Controls explained shortly: K \, G and S control the
+scattering junctions. K is the reflection coeeficient. G is gain. S
+switches the signal paths. If you turn it off you can get VEEERY long
+tails \, but careful. Use G to keep control it. The AP vars G1 and
+G2 control the ´ain of the allpass nests. G1 being outer AP gain \,
+G2 inner AP gain.;
+#X text 293 134 Note that while the controls here are shown as integers
+ranging between -100 adn 100 \, the jVerb needs -1 to 1 decimals,
+f 60;
+#X text 18 347 Reading for those interested: https://ccrma.stanford.edu/~jos/pasp/Kelly_Lochbaum_Scattering_Junctions.html
+https://ccrma.stanford.edu/~jos/pasp/Schroeder_Allpass_Sections.html
+https://valhalladsp.com/2011/01/21/reverbs-diffusion-allpass-delays-and-metallic-artifacts/
+, f 91;
+#N canvas 0 50 450 300 presets 0;
+#X msg 104 81 \; jk 60 \; jg 55 \; js 0 \; ag1 80 \; ag2 -76 \;;
+#X msg 175 82 \; jk 80 \; jg 98 \; js 1 \; ag1 -50 \; ag2 70 \;;
+#X msg 244 81 \; jk 99 \; jg 99 \; js 1 \; ag1 -30 \; ag2 -50 \;;
+#X msg 30 81 \; jk 60 \; jg 70 \; js 1 \; ag1 -80 \; ag2 50 \;;
+#X text 30 26 A couple of presets to try out. The last one is \, how
+to say it... My personal fave. Number 1 is the "factory default";
+#X restore 510 185 pd presets;
+#X text 508 208 ^ open and try out some presets;
+#X text 19 247 play around with where to insert / take out sound. You
+could do a two channel mix of all outlets ala datorros pseudo stereo
+, f 28;
+#X text 17 7 jVerb v.1.1 by @bocanegra. Based on Kelly-Lochbaum scattering
+junctions and Schroeder allpass nests, f 102;
+#X text 21 94 Start the sequencer or do manual bangs or add your own
+sounds to test the machinery, f 20;
+#X connect 0 1 3 0;
+#X connect 0 3 3 1;
+#X connect 2 0 0 0;
+#X connect 4 0 0 2;
+#X connect 5 0 0 8;
+#X connect 6 0 10 0;
+#X connect 7 0 8 0;
+#X connect 8 1 9 0;
+#X connect 9 0 2 0;
+#X connect 9 1 4 0;
+#X connect 10 0 7 0;

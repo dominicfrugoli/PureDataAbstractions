@@ -1,0 +1,80 @@
+#N canvas 493 44 1065 640 12;
+#X obj 604 256 feniverb~;
+#X obj 706 62 bng 15 250 50 0 empty empty load 17 7 0 10 -262144 -1
+-1;
+#X obj 655 62 tgl 15 0 empty empty loop 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 604 62 tgl 15 0 empty empty play 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 884 141 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1
+1 1;
+#X msg 884 166 \; pd dsp \$1;
+#X obj 690 576 dac~;
+#X obj 604 557 *~;
+#X obj 877 542 hsl 128 15 0 1 0 0 empty empty Master_Volume -2 -8 0
+10 -262144 -1 -1 4300 1;
+#X obj 604 87 fileplay~, f 15;
+#X text 757 57 2 - Load a file here to be played, f 17;
+#X text 601 16 4 - Click the play toggle to play the file, f 23;
+#X text 877 118 1 - Turn on dsp;
+#X text 837 480 3 - Turn up the master volume slider to desired level
+, f 29;
+#X floatatom 681 157 5 0 0 1 Predelay - -;
+#X floatatom 719 183 5 0 0 1 Dampen - -;
+#X floatatom 758 208 5 0 1 1 Decay - -;
+#X floatatom 797 234 5 0 1 1 Mix - -;
+#X text 825 336 5 - Mess with controls to hear different settings,
+f 26;
+#X obj 797 557 *~;
+#X text 116 508 Created by Dominic Frugoli - January 2023;
+#X text 16 92 ------------------------------------------------------------------------------
+, f 79;
+#X text 16 318 ------------------------------------------------------------------------------
+, f 79;
+#X text 16 408 ------------------------------------------------------------------------------
+, f 79;
+#X text 16 478 ------------------------------------------------------------------------------
+, f 79;
+#X text 16 429 GUI - This abstraction has a graph on parent option
+that has sliders for all the parameters. The sliders are set for the
+typical ranges \, but the inlets will remain so any number can still
+be fed through the inlets if needed., f 79;
+#X text 16 52 ------------------------------------------------------------------------------
+, f 79;
+#X text 16 71 feniverb~ - A basic reverb using [jon~] as the reverb
+algorithm., f 79;
+#X text 16 113 1st inlet~ - Left Audio In - Takes a mono signal input
+for the left channel., f 79;
+#X text 16 136 2nd inlet~ - Right Audio In - Takes a mono signal input
+for the right channel. The reverb will work with mono inputs \, just
+use the left channel only., f 79;
+#X text 16 173 3rd inlet - Predelay - Takes a positive number to set
+the predelay of the reverb in ms., f 79;
+#X text 16 210 4th inlet - Dampen Cutoff - Takes a positive number
+that sets the cutoff frequency of the dampening low pass filter.,
+f 79;
+#X text 16 246 5th inlet - Decay - Takes a number between 0 and 1 that
+sets the decay length of the reverb., f 79;
+#X text 16 283 6th inlet - Dry/Wet Mix - Takes a number between 0 and
+1 and sets the mix level for the wet signal. A 0 will be fully dry
+and a 1 will be fully wet., f 79;
+#X text 16 374 2nd outlet~ - Right Audio Out - This is the audio output
+for the right channel. It will output in mono., f 79;
+#X text 16 340 1st outlet~ - Left Audio Out - This is the audio output
+for the left channel. It will output in mono., f 79;
+#X connect 0 0 7 0;
+#X connect 0 1 19 0;
+#X connect 1 0 9 2;
+#X connect 2 0 9 1;
+#X connect 3 0 9 0;
+#X connect 4 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 7 1;
+#X connect 8 0 19 1;
+#X connect 9 0 0 0;
+#X connect 9 1 0 1;
+#X connect 14 0 0 2;
+#X connect 15 0 0 3;
+#X connect 16 0 0 4;
+#X connect 17 0 0 5;
+#X connect 19 0 6 1;
