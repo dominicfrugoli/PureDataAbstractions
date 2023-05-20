@@ -1,0 +1,51 @@
+#N canvas 532 134 520 741 12;
+#X obj 110 435 noise~;
+#X floatatom 164 474 5 0 0 0 - - -;
+#X obj 219 512 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 110 647 dac~;
+#X obj 110 616 *~;
+#X obj 131 594 hsl 128 15 0 2 0 0 empty empty master_volume -2 -8 0
+10 -262144 -1 -1 0 1;
+#X obj 110 542 reso~ 440, f 16;
+#X text 268 590 Turn up the volume to try it out, f 18;
+#X text 242 506 Bang to randomize texture filters, f 17;
+#X text 206 468 Control frequncy with number input, f 17;
+#X text 22 99 -------------------------------------------------------------------
+, f 67;
+#X text 28 117 1st inlet~ - Audio Input;
+#X text 28 138 2nd inlet - Frequency Input - Takes any positive integer
+and sets the frequency of the three pitched filters to that fundamental
+\, along with the next two harmonics.;
+#X text 28 11 [reso~] - A bank of 6 resonant band-pass filters for
+creating a modal synthesis voice. It takes a frequency input to control
+three of the filters (pitch filters) to make the voice more playable.
+The other three (texture filters) are still randomized though to give
+it more flare. If you don't want these though \, they are not activated
+until the right inlet is sent a bang., f 65;
+#X text 22 259 -------------------------------------------------------------------
+, f 67;
+#X text 28 277 1st outlet~ - Audio Output - Outputs the sum of all
+six filters \, with the texture filters being a bit quieter than the
+pitch filters.;
+#X text 22 323 -------------------------------------------------------------------
+, f 67;
+#X text 28 188 3rd inlet - Randomize Bang - Takes in a bang and randomizes
+the three texture filters. Texture filters will not pass audio until
+banged once. Randomize range is set internally. If you want to make
+adjustments to it \, then feel free to change it inside the object.
+;
+#X text 28 341 Creation Arguments - The only creation argument this
+object takes is to initialize the pitch of the filters. It is not essential
+\, but then audio will not pass until a frequency is given to the second
+inlet.;
+#X text 22 399 -------------------------------------------------------------------
+, f 67;
+#X text 214 700 Created by Dominic Frugoli - May 2023;
+#X connect 0 0 6 0;
+#X connect 1 0 6 1;
+#X connect 2 0 6 2;
+#X connect 4 0 3 0;
+#X connect 4 0 3 1;
+#X connect 5 0 4 1;
+#X connect 6 0 4 0;

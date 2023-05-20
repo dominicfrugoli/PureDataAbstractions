@@ -1,4 +1,4 @@
-#N canvas 1025 120 461 524 12;
+#N canvas 280 342 461 524 12;
 #X obj 54 372 vcf~ 500;
 #X obj 188 291 sig~;
 #X obj 188 132 \$1;
@@ -15,9 +15,9 @@
 #X obj 206 230 t b f;
 #X obj 286 353 *~;
 #X obj 304 36 inlet filterPass;
-#X text 349 206 randomizes filter cutoff when plate is pressed, f
+#X text 349 206 randomizes filter cutoff when input is set to 1, f
 14;
-#X text 260 379 Only lets sound through when plate is pressed and filter
+#X text 260 379 Only lets sound through when right inlet is 1 and filter
 has been randomized, f 16;
 #X connect 0 0 4 0;
 #X connect 1 0 14 0;

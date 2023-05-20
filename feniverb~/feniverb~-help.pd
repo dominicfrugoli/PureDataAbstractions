@@ -7,12 +7,12 @@
 #X obj 604 62 tgl 15 0 empty empty play 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 884 141 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X msg 884 166 \; pd dsp \$1;
 #X obj 690 576 dac~;
 #X obj 604 557 *~;
 #X obj 877 542 hsl 128 15 0 1 0 0 empty empty Master_Volume -2 -8 0
-10 -262144 -1 -1 4300 1;
+10 -262144 -1 -1 0 1;
 #X obj 604 87 fileplay~, f 15;
 #X text 757 57 2 - Load a file here to be played, f 17;
 #X text 601 16 4 - Click the play toggle to play the file, f 23;
@@ -62,6 +62,8 @@ and a 1 will be fully wet., f 79;
 for the right channel. It will output in mono., f 79;
 #X text 16 340 1st outlet~ - Left Audio Out - This is the audio output
 for the left channel. It will output in mono., f 79;
+#X text 119 550 Reverb algorithm is based entirely off of the [jon~]
+external, f 34;
 #X connect 0 0 7 0;
 #X connect 0 1 19 0;
 #X connect 1 0 9 2;

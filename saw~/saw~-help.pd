@@ -1,4 +1,4 @@
-#N canvas 281 151 620 575 12;
+#N canvas 281 151 620 605 12;
 #X msg 316 370 0;
 #X msg 352 370 1;
 #X obj 263 517 dac~;
@@ -41,9 +41,6 @@ the oscillator is in normal saw mode (ramping up) or inverse saw mode
 (ramping down). The inlet takes either a 0 or a 1 (0 for normal saw
 and 1 for inverse saw). The object will initialize at normal saw and
 this inlet will override that., f 79;
-#X text 25 218 1st outlet ~ Audio out. This is the audio outlet for
-the saw oscillator. It will output a sawtooth wave from -1 to 1, f
-79;
 #X text 25 254 ------------------------------------------------------------------------------
 , f 79;
 #X text 25 81 1st inlet - Frequency in. Takes a message and sets the
@@ -56,6 +53,10 @@ oscillator. This frequency will be overridden by the 1st inlet., f
 #X text 187 368 Frequency;
 #X text 305 339 Normal Saw, f 6;
 #X text 356 338 Inverse Saw, f 7;
+#X text 266 562 Created by Dominic Frugoli - October 2022;
+#X text 25 218 1st outlet~ - Audio out. This is the audio outlet for
+the saw oscillator. It will output a sawtooth wave from -1 to 1, f
+79;
 #X connect 0 0 10 1;
 #X connect 1 0 10 1;
 #X connect 3 0 2 0;

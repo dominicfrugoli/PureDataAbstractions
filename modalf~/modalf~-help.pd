@@ -1,0 +1,49 @@
+#N canvas 633 83 503 728 12;
+#X obj 106 444 modalf~ 250 750;
+#X obj 208 418 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 106 397 noise~;
+#X obj 106 544 dac~;
+#X obj 106 513 *~;
+#X obj 127 488 hsl 128 15 0 2 0 0 empty empty master_volume -2 -8 0
+10 -262144 -1 -1 0 1;
+#X text 234 407 Pass sound through and randomize value with toggle
+here (0 or 1), f 22;
+#X text 265 480 Turn up volume to try, f 13;
+#X text 28 596 Created by Dominic Frugoli - May 2023;
+#X text 30 12 [modalf~] - A resonant bandpass filter that randomizes
+its value and passes sound through whenever it receives a 1 in its
+right inlet. Made to be used in a modal synthesis engine., f 63;
+#X text 21 62 ------------------------------------------------------------------
+, f 66;
+#X text 30 110 2nd inlet - Boolean trigger (either 0 or 1). When it
+receives a 0 \, the sound will not be passed through. When it receives
+a 1 \, the filter value is randomized and then sound is passed through.
+;
+#X text 21 172 ------------------------------------------------------------------
+, f 66;
+#X text 30 85 1st inlet~ - Audio Input;
+#X text 30 193 1st outlet~ - Audio Output. Passes through filter and
+outputs only when right inlet receives a 1;
+#X text 30 246 Creation Arguments - Base Frequency \, Randomize Range
+- The first creation argument needed is the base frequency that the
+filter bases off of. This is what the randomized ineger will be added
+to. The second argument is the range that the randomized integer can
+be in. In this example the base frequency is 250 and the randomize
+range is 750 This means whenever the filter is randomized \, it is
+placed somewhere between 250 and 1000;
+#X text 21 227 ------------------------------------------------------------------
+, f 66;
+#X text 21 360 ------------------------------------------------------------------
+, f 66;
+#X obj 36 687 reso~;
+#X text 29 627 This abstraction was made for a specific hardware project
+\, which is why it operates slightly weird. For a more useful and versatile
+abstraction \, try the [reso~] object also in this repository., f
+52;
+#X connect 0 0 4 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 4 0 3 0;
+#X connect 4 0 3 1;
+#X connect 5 0 4 1;

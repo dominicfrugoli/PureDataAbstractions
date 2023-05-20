@@ -71,6 +71,7 @@ transition without crackles, f 28;
 #X obj 370 115 r ratedef;
 #X obj 370 165 r depthdef;
 #X obj 370 215 r mixdef;
+#X text 503 482 Created by Dominic Frugoli - January 2023;
 #X connect 1 0 2 0;
 #X connect 2 0 22 0;
 #X connect 3 0 15 0;

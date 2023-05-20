@@ -1,20 +1,35 @@
-#N canvas 411 118 931 552 12;
-#X obj 563 239 spdt~;
-#X obj 563 347 dac~, f 5;
-#X obj 638 289 hsl 128 15 0 1 0 0 empty empty Master_Volume -2 -8 0
-10 -262144 -1 -1 0 1;
-#X obj 595 304 *~;
-#X obj 563 304 *~;
-#X obj 563 151 phasor~ 300;
-#X msg 595 178 0;
-#X msg 606 199 1;
-#X obj 621 220 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#N canvas 612 141 474 531 12;
+#X obj 57 345 spdt~;
+#X obj 57 453 dac~, f 5;
+#X obj 132 395 hsl 128 15 0 1 0 0 empty empty Master_Volume -2 -8 0
+10 -262144 -1 -1 2300 1;
+#X obj 89 410 *~;
+#X obj 57 410 *~;
+#X obj 57 257 phasor~ 300;
+#X msg 89 284 0;
+#X msg 100 305 1;
+#X obj 115 330 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X text 629 177 Sets left outlet as output;
-#X text 637 198 Sets right outlet as output;
-#X text 644 218 Can use toggle switch instead.;
-#X text 153 140 PUT DOCUMENTATION HERE;
-#X text 79 461 Created by Dominic Frugoli - January 2023;
+#X text 123 283 Sets left outlet as output;
+#X text 131 304 Sets right outlet as output;
+#X text 138 328 Can use toggle switch instead.;
+#X text 36 481 Created by Dominic Frugoli - January 2023;
+#X text 22 11 [spdt~] - A simple switch for routing an audio signal
+between two locations. Can toggle between the left and right outlets
+using a 0/1 boolean.;
+#X text 17 57 --------------------------------------------------------------
+, f 62;
+#X text 22 76 1st inlet~ - Audio Input;
+#X text 22 97 2nd inlet - Routing Toggle - Takes in a 0 or a 1 to determine
+which outlet is opened. 0 opens the left \, 1 opens the right.;
+#X text 17 142 --------------------------------------------------------------
+, f 62;
+#X text 22 159 1st outlet~ - Audio Outlet 0 - Active when a 0 is fed
+to the right inlet;
+#X text 22 194 2nd outlet~ - Audio Outlet 1 - Active when a 1 is fed
+to the right inlet;
+#X text 17 226 --------------------------------------------------------------
+, f 62;
 #X connect 0 0 4 0;
 #X connect 0 1 3 0;
 #X connect 2 0 3 1;

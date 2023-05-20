@@ -1,0 +1,67 @@
+#N canvas 571 25 579 780 12;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array testArray 1.18327e+07 float 2;
+#X coords 0 1 1.18327e+07 -1 200 140 1;
+#X restore 331 593 graph;
+#X obj 47 536 grain~ testArray;
+#X floatatom 101 484 5 0 0 0 - - -;
+#X floatatom 156 513 5 0 0 0 - - -;
+#X obj 335 548 soundfiler;
+#X obj 335 495 openpanel;
+#X msg 335 522 read -resize \$1 testArray;
+#X obj 335 474 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 47 454 5 0 0 0 - - -;
+#X obj 47 626 dac~;
+#X text 143 484 Grain Duration (in ms);
+#X text 198 513 Play Speed;
+#X text 88 455 Start Index (in samples);
+#X text 36 657 Created by Dominic Frugoli - May 2023;
+#X text 34 684 Patch based on code by Andrew R. Brown of GCQInteractiveMusic
+youtube channel. https://youtu.be/QX_saH55cks, f 40;
+#X text 335 446 Load a file to read from here;
+#X obj 47 597 *~;
+#X obj 68 577 hsl 128 15 0 127 0 0 empty empty master_volume -2 -8
+0 10 -262144 -1 -1 0 1;
+#X text 40 380 Set a play speed \, a duration \, and then type a start
+index to hear the playback. For more info on how to playback or use
+the grains \, check out Andrew Brown's video below.;
+#X text 26 9 [grain~] - An object for reading a grain of audio from
+an array. Putting multiple of these together can allows for some basic
+forms of granular synthesis., f 75;
+#X text 19 56 ----------------------------------------------------------------------------
+, f 76;
+#X text 26 75 1st inlet - Start Index - This takes an integer that
+sets the sample index of where the grain will begin. It is dependent
+on the sample rate of the file \, so at a 44.1k sample rate \, 1 second
+in would be at 44100 This inlet also starts the playback of the grain.
+, f 75;
+#X text 26 141 2nd inlet - Grain Duration - Takes an integer to determine
+how long the duration of the grain will be. This number is in milliseconds
+(as oppose to the start index which is in samples) so 1 second here
+would be 1000, f 75;
+#X text 26 193 3rd inlet - Play Speed - Takes a number that determines
+the playback speed of the grain. A 1 would be no change in speed. Lower
+than 1 slows the speed (0.5 is half speed) and greater than 1 increases
+the speed (2 is double speed)., f 75;
+#X text 19 255 ----------------------------------------------------------------------------
+, f 76;
+#X text 26 274 1st outlet~ - Grain Audio Out;
+#X text 19 290 ----------------------------------------------------------------------------
+, f 76;
+#X text 26 308 Creation Argument - The creation argument that [grain~]
+takes is for setting which array the grain is read from. This is very
+important and the object won't work if their is no array given, f
+74;
+#X text 19 353 ----------------------------------------------------------------------------
+, f 76;
+#X connect 1 0 16 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 2;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X connect 8 0 1 0;
+#X connect 16 0 9 0;
+#X connect 16 0 9 1;
+#X connect 17 0 16 1;

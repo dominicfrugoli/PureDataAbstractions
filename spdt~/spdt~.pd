@@ -1,7 +1,7 @@
-#N canvas 982 140 690 685 12;
+#N canvas 982 140 426 412 12;
 #X obj 71 67 inlet~;
-#X obj 182 361 outlet~ \$0-1;
-#X obj 71 361 outlet~ \$0-0;
+#X obj 182 324 outlet~ \$0-1;
+#X obj 71 324 outlet~ \$0-0;
 #X obj 71 289 *~;
 #X obj 182 289 *~;
 #X obj 273 68 inlet \$0-toggle;
@@ -18,6 +18,7 @@
 #X msg 296 169 1;
 #X obj 186 60 loadbang;
 #X msg 186 79 0;
+#X text 55 365 Created by Dominic Frugoli - January 2023;
 #X connect 0 0 3 0;
 #X connect 0 0 4 0;
 #X connect 3 0 2 0;

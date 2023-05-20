@@ -37,13 +37,13 @@
 #X obj 642 18 cnv 15 215 215 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X obj 664 52 hsl 175 25 0 500 0 0 empty empty Predelay 119 -10 1 15
--191407 -159808 -159808 3100 1;
+-191407 -159808 -159808 1740 1;
 #X obj 664 98 hsl 175 25 0 10000 0 0 empty empty Dampen 120 -10 1 15
--191407 -159808 -159808 0 1;
+-191407 -159808 -159808 6090 1;
 #X obj 664 190 hsl 175 25 0 1 0 0 empty empty Mix 154 -10 1 15 -191407
--159808 -159808 5900 1;
+-159808 -159808 8700 1;
 #X obj 664 144 hsl 175 25 0 1 0 0 empty empty Decay 134 -10 1 15 -191407
--159808 -159808 5340 1;
+-159808 -159808 10440 1;
 #X floatatom 597 77 5 0 0 0 - - -;
 #X floatatom 597 123 5 0 0 0 - - -;
 #X floatatom 597 169 5 0 0 0 - - -;
@@ -63,6 +63,7 @@
 #X obj 788 371 loadbang;
 #X msg 788 390 \; pddef 50 \; dampdef 3500 \; decdef 0.6 \; mixdef
 0.5 \;;
+#X text 659 522 Created by Dominic Frugoli - January 2023;
 #X connect 0 0 25 0;
 #X connect 0 1 24 0;
 #X connect 1 0 0 2;

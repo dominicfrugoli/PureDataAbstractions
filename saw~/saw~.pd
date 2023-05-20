@@ -18,6 +18,7 @@
 #X text 388 57 Sets regular or inverse saw (0 for regular \, 1 for
 inverse), f 13;
 #X text 309 240 Sets phasor~ to full scale (-1 to 1), f 14;
+#X text 20 352 Created by Dominic Frugoli - October 2022;
 #X connect 0 0 13 0;
 #X connect 1 0 7 0;
 #X connect 3 0 4 0;

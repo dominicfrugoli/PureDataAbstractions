@@ -1,10 +1,10 @@
 #N canvas 106 106 1041 661 12;
 #X obj 619 259 basictape~;
-#X obj 721 74 bng 15 250 50 0 empty empty load 17 7 0 10 -262144 -1
+#X obj 721 68 bng 15 250 50 0 empty empty load 17 7 0 10 -262144 -1
 -1;
-#X obj 670 74 tgl 15 0 empty empty loop 17 7 0 10 -262144 -1 -1 0 1
+#X obj 670 68 tgl 15 0 empty empty loop 17 7 0 10 -262144 -1 -1 0 1
 ;
-#X obj 619 74 tgl 15 0 empty empty play 17 7 0 10 -262144 -1 -1 0 1
+#X obj 619 68 tgl 15 0 empty empty play 17 7 0 10 -262144 -1 -1 0 1
 ;
 #X obj 899 153 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1
 0 1;
@@ -13,9 +13,9 @@
 #X obj 619 569 *~;
 #X obj 640 539 hsl 128 15 0 1 0 0 empty empty Master_Volume -2 -8 0
 10 -262144 -1 -1 0 1;
-#X obj 619 99 fileplay~, f 15;
-#X text 772 69 2 - Load a file here to be played, f 17;
-#X text 616 28 4 - Click the play toggle to play the file, f 23;
+#X obj 619 93 fileplay~, f 15;
+#X text 772 63 2 - Load a file here to be played, f 17;
+#X text 614 30 4 - Click the play toggle to play the file, f 23;
 #X text 892 130 1 - Turn on dsp;
 #X text 778 531 3 - Turn up the master volume slider to desired level
 , f 29;
