@@ -10,7 +10,7 @@ A location for storing all my Pure Data abstractions. Most are quite versatile, 
 - [chorus~] - a chorus/vibrato with rate, depth, and mix controls
 - [crossfade~] - a simple linear crossfade for two signal inputs
 - [feniverb~] - a reverb object using the [jon~] reverb (link to github project at bottom of page)
-- [grain~] - an object for reading a grain of audio from an array, based off code from GCQInteractive Music (link to video at bottom of page)
+- [grain~] - an object for reading a grain of audio from an array, based off code from QCGInteractive Music (link to video at bottom of page)
 - [modalf~] - a resonant bandpass filter with randomization for use in a modal synthesis engine
 - [reso~] - a bank of 6 resonant band-pass filters for creating a modal synthesis voice
 - [saturation~] - a basic mono saturation overdrive, based on code from Toxonic (link at bottom of page)
@@ -29,7 +29,7 @@ A location for storing all my Pure Data abstractions. Most are quite versatile, 
 
 ## Acknowledgements
 
- - [GCQInteractiveMusic](https://www.youtube.com/watch?v=QX_saH55cks) - code from this video used in [grain~]
+ - [QCGInteractiveMusic](https://www.youtube.com/watch?v=QX_saH55cks) - code from this video used in [grain~]
  - [Anton Hornquist](https://github.com/antonhornquist/jon-pd) - jon-pd code used in [feniverb~] (jon~ likely must be installed in order to use [feniverb~])
  - [Toxonic](https://forum.pdpatchrepo.info/topic/2722/saturation) - saturation code used in [saturation~] 
 
