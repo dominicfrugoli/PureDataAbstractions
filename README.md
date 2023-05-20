@@ -1,6 +1,6 @@
 # Pure Data Abstractions
 
-A location for storing all my PureData abstractions. Most are quite versatile, but some are made for specific projects so they aren't as easily usable. Take a look at the help patches for each object to see how to use the abstraction. Thanks for taking a look and hopefully some can be of some use!
+A location for storing all my Pure Data abstractions. Most are quite versatile, but some are made for specific projects so they aren't as easily usable. Take a look at the help patches for each object to see how to use the abstraction. Thanks for taking a look and hopefully some can be of some use!
 
 
 # List of Objects
