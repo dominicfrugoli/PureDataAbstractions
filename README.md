@@ -5,7 +5,7 @@ A location for storing all my PureData abstractions. Most are quite versatile, b
 
 # List of Objects
 
-Signal Objects
+#### Signal Objects
 - [basictape~] - a basic tape-style delay with modulation and filtering
 - [chorus~] - a chorus/vibrato with rate, depth, and mix controls
 - [crossfade~] - a simple linear crossfade for two signal inputs
@@ -17,7 +17,7 @@ Signal Objects
 - [saw~] - a full-scale sawtooth oscillator that has forward and reverse saw
 - [spdt~] - a simple toggle switch for routing an audio signal between two locations
 
-Message Objects
+#### Message Objects
 - [boolswitch] - a simple switch for sending a boolean value (0 or 1) to one of two outlets
 
 
