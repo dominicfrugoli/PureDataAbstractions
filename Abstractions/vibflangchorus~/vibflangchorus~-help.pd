@@ -14,8 +14,8 @@
 #X text 641 341 White chorus;
 #X text 401 501 Doubling;
 #X obj 306 306 *~ 0.1;
-#X floatatom 496 122 5 0 3 1 0-3ms - DELAY 0;
-#X floatatom 496 141 5 0.1 5 1 0.1-5Hz_sine - DEPTH 0;
+#X floatatom 496 122 5 0 3 1 0-3ms - DELAY;
+#X floatatom 496 141 5 0.1 5 1 0.1-5Hz_sine - DEPTH;
 #X msg 404 45 \; bypass 0 \; BL 0 \; FF 1 \; FB 0 \; DELAY 0 \; DEPTH
 1.5 \; MOD 2.5;
 #X msg 404 205 \; bypass 0 \; BL 0.7 \; FF 0.7 \; FB 0.7 \; DELAY 0
@@ -32,33 +32,33 @@ DEPTH 15 \; MOD lpnoise;
 #X text 116 450 flip toggle;
 #X obj 10 479 *~ 1;
 #X obj 56 479 *~ 0;
-#X floatatom 496 440 5 1 30 1 1-30ms - DELAY 0;
-#X floatatom 496 459 5 1 30 1 1-30ms - DELAY 0;
-#X floatatom 736 440 5 1 30 1 1-30ms - DELAY 0;
-#X floatatom 736 459 5 1 30 1 1-30ms - DELAY 0;
-#X floatatom 496 600 5 10 100 1 10-100ms - DELAY 0;
-#X floatatom 496 619 5 1 100 1 1-100ms - DELAY 0;
+#X floatatom 496 440 5 1 30 1 1-30ms - DELAY;
+#X floatatom 496 459 5 1 30 1 1-30ms - DELAY;
+#X floatatom 736 440 5 1 30 1 1-30ms - DELAY;
+#X floatatom 736 459 5 1 30 1 1-30ms - DELAY;
+#X floatatom 496 600 5 10 100 1 10-100ms - DELAY;
+#X floatatom 496 619 5 1 100 1 1-100ms - DELAY;
 #X obj 236 276 osc~ 440;
 #X obj 236 306 *~ 0.1;
-#X floatatom 486 281 5 0 2 1 0-2ms - DELAY 0;
-#X floatatom 486 300 5 0.1 1 1 0.1-1Hz_sine - DEPTH 0;
+#X floatatom 486 281 5 0 2 1 0-2ms - DELAY;
+#X floatatom 486 300 5 0.1 1 1 0.1-1Hz_sine - DEPTH;
 #X text 482 212 TODO: LFO sounds like a /clipped/ sinusoid that rests
 at maximum and minimum;
 #X text 91 75 Bypass all effects (= default upon load);
-#X obj 10 154 tgl 15 0 empty \$0-done playback 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#X obj 10 154 tgl 15 0 empty \$0-done playback 17 7 0 10 -262144 -1
+-1 0 1;
 #X obj 182 154 bng 15 250 50 0 empty empty select\\\ file 17 7 0 10
-#fcfcfc #000000 #000000;
+-262144 -1 -1;
 #X obj 10 179 fileplay~ la_reverdie.wav;
-#X obj 10 74 tgl 15 0 empty empty DSP 17 7 0 10 #fcfcfc #000000 #000000
-0 1;
+#X obj 10 74 tgl 15 0 empty empty DSP 17 7 0 10 -262144 -1 -1 0 1;
 #X msg 10 99 \; pd dsp 1;
 #X obj 182 209 s \$0-done;
-#X obj 96 154 tgl 15 0 empty empty loop 17 7 0 10 #fcfcfc #000000 #000000
-0 1;
+#X obj 96 154 tgl 15 0 empty empty loop 17 7 0 10 -262144 -1 -1 0 1
+;
 #X text 234 247 Other test signals:;
 #X text 9 4 (Rough) implementation of Zölzer 2011 \, ch.2 \, p.78
 \, fig. 2.34. If you find bugs \, send me a fix! :);
+#X text 20 601 Created by Florian Hollerweger;
 #X connect 1 0 14 0;
 #X connect 2 0 9 6;
 #X connect 3 0 9 1;
