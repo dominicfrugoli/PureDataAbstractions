@@ -30,8 +30,8 @@ A location for storing all my PureData abstractions. Most are quite versatile, b
 ## Acknowledgements
 
  - [GCQInteractiveMusic](https://www.youtube.com/watch?v=QX_saH55cks) - code from this video used in [grain~]
- - [Anton Horquist](https://github.com/antonhornquist/jon-pd) - jon-pd code used in [feniverb~]
- - [Toxonic](https://forum.pdpatchrepo.info/topic/2722/saturation) - saturation code used in [saturation~]
+ - [Anton Horquist](https://github.com/antonhornquist/jon-pd) - jon-pd code used in [feniverb~] (jon~ likely must be installed in order to use [feniverb~])
+ - [Toxonic](https://forum.pdpatchrepo.info/topic/2722/saturation) - saturation code used in [saturation~] 
 
 
 ## License
