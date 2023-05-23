@@ -1,0 +1,62 @@
+#N canvas 476 157 530 743 12;
+#X obj 22 589 osc~ 440;
+#X obj 98 461 bng 20 250 50 0 empty empty activate -58 11 0 12 -262144
+-1 -1;
+#X obj 80 625 *~;
+#X obj 80 663 dac~;
+#X obj 98 492 asrenv~ 20 50 200;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-envArray 1 float 3;
+#A 0 0;
+#X coords 0 1 1 -1 200 140 1 0 0;
+#X restore 305 542 graph;
+#X obj 152 625 snapshot~;
+#X obj 152 591 metro 10;
+#X floatatom 136 421 5 0 0 1 attack - -;
+#X floatatom 175 446 5 0 0 1 sustain - -;
+#X floatatom 214 465 5 0 0 1 release - -;
+#X obj 152 567 loadbang;
+#X obj 152 663 tabwrite \$0-envArray;
+#X text 7 49 -----------------------------------------------------------------------
+, f 71;
+#X text 11 69 1st inlet - Activate Bang - Takes in a bang to generate
+the envelope, f 69;
+#X text 10 6 [asrenv~] - A 3-stage envelope generator with an attack
+\, sustain \, and release input. Takes in a bang and outputs a control
+signal from 0-1. All times for this object are in milliseconds., f
+69;
+#X text 11 92 2nd inlet - Attack Time (ms) - Takes in a positive integer
+to set the attack time of the envelope. Activates when first inlet
+is banged. Ramps from 0 to 1, f 69;
+#X text 11 143 3rd inlet - Sustain Time (ms) - Takes in a positive
+integer to set the sustain time of the envelope. Activates once attack
+stage has ended. Sustains at 1, f 69;
+#X text 11 194 4th inlet - Release Time (ms) - Takes in a positive
+integer to set the release time of the envelope. Activates one sustain
+stage has ended. Ramps from 1 to 0, f 69;
+#X text 8 240 -----------------------------------------------------------------------
+, f 71;
+#X text 11 259 1st outlet~ - Envelope output - Outputs the full envelope
+as a signal from 0 to 1, f 69;
+#X text 8 292 -----------------------------------------------------------------------
+, f 71;
+#X text 12 309 Creation Arguments - [asrenv~] takes in 3 creation arguments.
+They set the initial times for the envelope. The arguments are in the
+same order as the inlets so attack \, sustain \, then release. If no
+creation arguments are given \, the envelope timings will default to
+0 so some integers must be given to make the output work., f 69;
+#X text 8 382 -----------------------------------------------------------------------
+, f 71;
+#X text 32 704 Created by Dominic Frugoli - May 2023, f 37;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 4 0 2 1;
+#X connect 4 0 6 0;
+#X connect 6 0 12 0;
+#X connect 7 0 6 0;
+#X connect 8 0 4 1;
+#X connect 9 0 4 2;
+#X connect 10 0 4 3;
+#X connect 11 0 7 0;

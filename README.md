@@ -6,6 +6,7 @@ A location for storing all my Pure Data abstractions. Most are quite versatile, 
 # List of Objects
 
 #### Signal Objects
+- [asrenv~] -  A 3-stage envelope generator with an attack, sustain, and release input
 - [basictape~] - a basic tape-style delay with modulation and filtering
 - [chorus~] - a chorus/vibrato with rate, depth, and mix controls
 - [crossfade~] - a simple linear crossfade for two signal inputs
