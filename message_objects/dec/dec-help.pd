@@ -1,0 +1,50 @@
+#N canvas 921 268 528 584 12;
+#X obj 235 389 bng 18 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 235 502 8 0 0 0 - - -;
+#X obj 149 435 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 258 418 tgl 18 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 149 455 metro 250;
+#X floatatom 281 447 5 0 0 0 - - -;
+#X text 281 417 Toggle to activate reset;
+#X text 320 448 Change the reset point;
+#X text 49 430 Set metro for automatic incrementing, f 13;
+#X text 7 49 -----------------------------------------------------------------------
+, f 71;
+#X text 11 217 -----------------------------------------------------------------------
+, f 71;
+#X text 11 282 -----------------------------------------------------------------------
+, f 71;
+#X text 11 344 -----------------------------------------------------------------------
+, f 71;
+#X text 11 91 2nd inlet - Reset Toggle - Takes in a toggle boolean
+(0 or 1) to control the reset loop. 1 activates reset \, 0 deactivates
+it. It initializes as off., f 69;
+#X text 17 555 Created by Dominic Frugoli - July 2023;
+#X obj 235 474 dec 16, f 7;
+#X text 296 503 decrement output;
+#X text 261 388 Hit bang to decrement counter;
+#X text 11 69 1st inlet - Decrement Tick - Takes in a bang to decrement
+by 1, f 69;
+#X text 11 142 3rd inlet - Reset point - Takes in a positive integer
+to set the reset point for the counter. Will take effect after one
+tick of the counter. Though the given integer is positive \, it will
+reset at the negative value. For example \, if the reset point given
+is 16 it will reset after the counter reaches -15, f 69;
+#X text 14 236 1st outlet - Counter Output - Outputs the current count
+from the counter. This a 0 based counter so if the reset is set at
+16 \, the outputs will be from 0 to -15, f 69;
+#X text 15 299 Creation Argument - Initial Reset Point - Accepts a
+postive integer as the creation argument that sets the initial reset
+point \, which can be overwritten by the 3rd inlet., f 69;
+#X text 10 6 [dec] - A simple decremental counter for negative counting
+by one. Can be used as an infinite counter or a resetting counter.
+For positive counting \, try the [inc] object., f 69;
+#X connect 0 0 15 0;
+#X connect 2 0 4 0;
+#X connect 3 0 15 1;
+#X connect 4 0 15 0;
+#X connect 5 0 15 2;
+#X connect 15 0 1 0;

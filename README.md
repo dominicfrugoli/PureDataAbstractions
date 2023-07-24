@@ -16,10 +16,12 @@ A location for storing all my Pure Data abstractions. Most are quite versatile, 
 - [reso~] - a bank of 6 resonant band-pass filters for creating a modal synthesis voice
 - [saturation~] - a basic mono saturation overdrive, based on code from Toxonic (link at bottom of page)
 - [saw~] - a full-scale sawtooth oscillator that has forward and reverse saw
-- [spdt~] - a simple toggle switch for routing an audio signal between two locations
+- [spdt~] - a toggle switch for routing an audio signal between two locations
 
 #### Message Objects
 - [boolswitch] - a simple switch for sending a boolean value (0 or 1) to one of two outlets
+- [inc] - an incremental counter for positive counting by one
+- [dec] - a decremental counter for negative counting by one
 
 
 ## Authors
