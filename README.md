@@ -24,6 +24,17 @@ A location for storing all my Pure Data abstractions. Most are quite versatile, 
 - [dec] - a decremental counter for negative counting by one
 
 
+## Download Instructions
+    1. Download the full code from github
+    2. Unzip and store the folder somewhere
+    3. Open Pure Data and go to the Path Preferences
+    4. Then make a new path that leads to both the "message_objects" and "signal_objects" folder
+    5. Test out the paths by using some of the objects in a patch
+    6. Have some fun!
+
+Pure Data (at least on Mac) seems to only be able to read one folder deep so just making a path for the abstractions folder doesn't seem to work. This is why I talk about making a path for both the message_objects folder and signal_objects folder since Pd seems fine with that. This should let you use the abstractions in any patch without issues.
+
+
 ## Authors
 
 - [@dominicfrugoli](https://github.com/dominicfrugoli)
