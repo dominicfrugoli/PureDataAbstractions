@@ -1,4 +1,4 @@
-#N canvas 186 133 440 383 12;
+#N canvas 186 133 440 384 12;
 #X obj 47 111 int 0;
 #X obj 95 92 + 1;
 #X obj 212 314 int 0;
@@ -19,6 +19,7 @@
 #X obj 230 238 - 1;
 #X obj 255 213 inlet resetPoint;
 #X text 262 179 creation argument sets initial reset point, f 22;
+#X text 17 345 Created by Dominic Frugoli - July 2023;
 #X connect 0 0 1 0;
 #X connect 0 0 4 0;
 #X connect 0 0 7 0;

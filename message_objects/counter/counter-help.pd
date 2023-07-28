@@ -1,0 +1,51 @@
+#N canvas 644 144 521 584 12;
+#X floatatom 42 467 5 0 0 0 - - -;
+#X obj 42 369 bng 17 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 102 415 5 0 0 0 - - -;
+#X floatatom 72 393 5 0 0 0 - - -;
+#X obj 42 440 counter 1;
+#X obj 327 440 counter -2;
+#X obj 327 369 bng 17 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 394 415 5 0 0 0 - - -;
+#X floatatom 360 393 5 0 0 0 - - -;
+#X floatatom 327 467 5 0 0 0 - - -;
+#X text 14 550 Created by Dominic Frugoli - July 2023;
+#X text 7 39 -----------------------------------------------------------------------
+, f 71;
+#X text 8 209 -----------------------------------------------------------------------
+, f 71;
+#X text 8 254 -----------------------------------------------------------------------
+, f 71;
+#X text 10 314 -----------------------------------------------------------------------
+, f 71;
+#X text 11 59 1st inlet - Counter Tick - Takes in a bang and ticks
+the counter by the set amount., f 69;
+#X text 11 225 1st outlet - Counter Output - Outputs the current count
+of the counter whenver a bang is given to the first inlet., f 69;
+#X text 11 140 3rd inlet - Counter Interval - Takes in a positive or
+negative integer to count by. Positive integers will add and negative
+integers will subtract. This will take effect after 1 tick of the counter.
+The interval can be initialized in the creation arguments and ovewritten
+here., f 70;
+#X text 10 6 [counter] - A no-frills counter for counting either positive
+or negative by any interval., f 69;
+#X text 11 93 2nd inlet - Counter Set - Takes in an integer and sets
+the counter to that. Will not change the counter interval. Counter
+always defaults to 0 if nothing is put in this inlet., f 69;
+#X text 12 271 Creation Arguments - Counter Interval - The counter
+interval can be initialized here through a positive or negative integer
+(operates the same as using the third inlet)., f 69;
+#X text 62 369 Tick the counter here;
+#X text 111 393 Set the current count here;
+#X text 142 417 Set the interval here;
+#X text 318 489 Example of a negative counter, f 16;
+#X connect 1 0 4 0;
+#X connect 2 0 4 2;
+#X connect 3 0 4 1;
+#X connect 4 0 0 0;
+#X connect 5 0 9 0;
+#X connect 6 0 5 0;
+#X connect 7 0 5 2;
+#X connect 8 0 5 1;
