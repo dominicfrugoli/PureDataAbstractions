@@ -1,19 +1,19 @@
-#N canvas 620 138 512 734 12;
-#X text 7 49 -----------------------------------------------------------------------
+#N canvas 644 72 528 734 12;
+#X text 13 50 -----------------------------------------------------------------------
 , f 71;
-#X text 8 212 -----------------------------------------------------------------------
+#X text 14 213 -----------------------------------------------------------------------
 , f 71;
-#X text 8 277 -----------------------------------------------------------------------
+#X text 14 278 -----------------------------------------------------------------------
 , f 71;
-#X text 9 352 -----------------------------------------------------------------------
+#X text 15 353 -----------------------------------------------------------------------
 , f 71;
-#X text 10 6 [abstractionname] - This is where you can write a little
+#X text 16 7 [abstractionname] - This is where you can write a little
 summary about what the abstraction does and is good for. Feel free
 to put some general ideas or quirks about the object here., f 69;
-#X text 11 231 1st outlet~ - Oulet Name - Similar to inlets \, write
+#X text 17 232 1st outlet~ - Oulet Name - Similar to inlets \, write
 what is outputted from the signal (type of signal or what data) and
 anything to keep in mind for the user., f 69;
-#X text 12 294 Creation Arguments - Creation Argument Names - Write
+#X text 18 295 Creation Arguments - Creation Argument Names - Write
 a little summary of what creation arguments the object takes and in
 what order. As always make sure to say what data types are needed.
 Again \, any quirks with the arguments can be mentioned here., f 69
@@ -33,7 +33,7 @@ Again \, any quirks with the arguments can be mentioned here., f 69
 #X text 47 528 Set metro for automatic incrementing, f 13;
 #X text 295 600 increment output;
 #X text 260 485 Hit bang to increment counter;
-#X text 35 384 Example taken from [inc] object. In the object demonstration
+#X text 36 386 Example taken from [inc] object. In the object demonstration
 section \, make sure to have a usable use-case for the object that
 works upon opening the help patch. Make sure to give a few instructions
 on how to work with the object and try to give a few options if possible.
@@ -41,13 +41,13 @@ on how to work with the object and try to give a few options if possible.
 #X text 28 662 Created by CREATORNAME - MONTH YEAR;
 #X text 27 684 Make sure to put credit in abstraciton patch as well
 , f 26;
-#X text 11 192 3rd inlet - Inlet Name - Inlet Description, f 69;
-#X text 11 69 1st inlet~ - Inlet Name - Write what type of data (integer
+#X text 17 193 3rd inlet - Inlet Name - Inlet Description, f 69;
+#X text 17 70 1st inlet~ - Inlet Name - Write what type of data (integer
 \, toggle \, mono/stereo signal) the inlet takes and what it controls
 in the patch. For signal inletsand outlets \, make sure to put the
 tilde (~) after the inlet like this one has. Message inlets should
 not have that tilde., f 69;
-#X text 11 141 2nd inlet - EXAMPLE FROM [inc] OBJECT - Takes in a toggle
+#X text 17 142 2nd inlet - EXAMPLE FROM [inc] OBJECT - Takes in a toggle
 boolean (0 or 1) to control the reset loop. 1 activates reset \, 0
 deactivates it. It initializes as off., f 69;
 #X connect 7 0 11 0;

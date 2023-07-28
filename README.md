@@ -20,8 +20,9 @@ A location for storing all my Pure Data abstractions. Most are quite versatile, 
 
 #### Message Objects
 - [boolswitch] - a simple switch for sending a boolean value (0 or 1) to one of two outlets
-- [inc] - an incremental counter for positive counting by one
+- [counter] - A no-frills counter for counting either positive or negative by any interval
 - [dec] - a decremental counter for negative counting by one
+- [inc] - an incremental counter for positive counting by one
 
 
 ## Download Instructions
